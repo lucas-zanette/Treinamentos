@@ -1,0 +1,30 @@
+package br.elaborata.com;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
+public class Cliente {
+
+	public void enviar(String ip, int Porta, String msg) throws IOException {
+		
+		DatagramSocket conexao = new DatagramSocket();
+		InetAddress enderecoServidor = InetAddress.getByName(ip);
+		
+		byte[] bufferPergunta =	msg.getBytes();
+		DatagramPacket pacotePergunta =	new DatagramPacket(bufferPergunta, bufferPergunta.length, enderecoServidor, Porta );
+		conexao.send(pacotePergunta);
+		System.out.println("Enviei: " + pacotePergunta.toString());
+		
+//		DatagramPacket resposta = new DatagramPacket(new byte[512],  512);
+//		conexao.receive(resposta);
+		
+		conexao.close();
+
+	}
+}

@@ -1,0 +1,38 @@
+package elaborata.com.br;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//jdbc usa esta string e tem que colocar anexar no projeto o jdbc - 
+		//botao direito no projeto -> properties -> java build path
+		Class.forName("com.mysql.jdbc.Driver").newInstance();		
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aula?user=root&password=elaborata&useSSL=false");
+		
+																								//modo errado de usar pode dar problema com invasao SQLINJECTION
+		//PreparedStatement ps = con.prepareStatement("insert into cliente(nome, salario) values('" + nome + "' )")
+		PreparedStatement pst = con.prepareStatement("insert into cliente (nome, salario) values(?, ?)");
+		pst.setString(1,  "Alpheu");
+		pst.setString(2, 3500);
+		
+		pst.execute();
+		
+		//colocar o comando numa classe
+		PreparedStatement ps = con.prepareStatement("select * from cliente");
+		
+		ResultSet rs = ps.executeQuery();  //espera um resultado  - o EXECUTE não espera resultado somente diz que deu certo ou não
+		// (executeQuery e EXECUTE) são completamente diferentes
+		//comandos que não tem retorno (insert, update, delete) usa-se o EXECUTE
+		//comandos que tem retorno (select) usa-se o executeQuery
+
+		while (rs.next()) {
+			System.out.println("nome");
+		}
+		con.close();
+	}
+
+}

@@ -1,0 +1,60 @@
+package br.com.elaborata.controle;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+import br.com.elaborata.modelo.Produto;
+
+public class CtlProduto {
+
+	public void salvar(Produto p) throws FileNotFoundException, IOException{
+										//nome do arquivo é o proprio código
+		serializar(p, Integer.toString(p.getCodigo()));
+		
+	}
+	
+	public void excluir(int codigo) {
+		
+	}
+	
+	public Produto getProximo(){
+		//verificar se tem o proximo porque se chegar no ultimo sem este tratamento vai dar erro na tela
+		return null;
+	}
+	
+	public Produto getAnterior(){
+		return null;
+	}
+	
+	//verificar se tem o proximo porque se chegar no ultimo sem este tratamento vai dar erro na tela
+	public boolean temAnt(){
+		return false;
+		
+	}
+	
+	public boolean temProx(){
+		return false;
+	}
+	
+	
+	//função salvar generica
+	private void serializar(Serializable obj, String nomeArq) {
+		//pega o que passar e grava
+		//preciso colocar (implemets Serializable) na classe pojo Produto para indicar que deixo serializar
+		//exemplo de polimorfismo se eu passar "private void serializar(Serializable obj)" entendi que faz algo com os parametros serializable e o obj
+
+		String arquivo = "/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/Dados/" + nomeArq + ".obj";
+		
+		try {
+			ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(arquivo));
+			output.writeObject(obj);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

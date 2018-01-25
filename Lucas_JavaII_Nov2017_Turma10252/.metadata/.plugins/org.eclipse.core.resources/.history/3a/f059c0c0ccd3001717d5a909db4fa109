@@ -1,0 +1,53 @@
+package Control;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import Model.Musica;
+
+public class CtlMusica {
+
+	
+	public void incluir(Musica m) throws SQLException {
+		String sql = "insert into musica (codigo, nome, autor, estilo, ano) values (?, ?, ?, ?, ?)";
+		PreparedStatement ps = Db.GetInstance().getConnection().prepareStatement(sql);
+		
+		ps.setString(1, m.getNome());
+		ps.setString(2, m.getAutor());
+		ps.setString(3, m.getEstilo());
+		ps.setInt(4, m.getAno());
+	}
+
+	public void alterar(Musica m) {
+		
+	}
+	
+	public void excluir(int codigo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Musica getAnt(){
+		return null;
+	}
+	
+	public Musica getProx(){
+		return null;
+	}
+	
+	public Musica getAtual(){
+		return null;
+	}
+	
+	public boolean temAnt(){
+		return null;
+	}
+	
+	public boolean temProx(){
+		return null;
+	}
+	
+	public boolean temAtual(){
+		return false;
+	}
+}

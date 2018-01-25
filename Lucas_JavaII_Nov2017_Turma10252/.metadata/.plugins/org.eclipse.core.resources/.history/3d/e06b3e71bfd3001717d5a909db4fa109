@@ -1,0 +1,157 @@
+package View;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Model.Musica;
+import br.com.elaborata.modelo.Produto;
+
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.awt.event.ActionEvent;
+
+public class FrmMusica extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtCodigo;
+	private JTextField txtNome;
+	private JTextField txtAutor;
+	private JTextField txtEstilo;
+	private JTextField txtAno;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmMusica frame = new FrmMusica();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FrmMusica() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 408, 314);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				preencheCampos();
+				
+			}
+		});
+		panel.add(btnIncluir);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		panel.add(btnAlterar);
+		
+		JButton btnExcluir = new JButton("Excluir");
+		panel.add(btnExcluir);
+		
+		JButton btnAnterior = new JButton("<");
+		panel.add(btnAnterior);
+		
+		JButton btnProximo = new JButton(">");
+		panel.add(btnProximo);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Codigo");
+		lblNome.setBounds(55, 12, 70, 15);
+		panel_1.add(lblNome);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nome");
+		lblNewLabel_1.setBounds(55, 52, 70, 15);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Autor");
+		lblNewLabel_2.setBounds(55, 92, 70, 15);
+		panel_1.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Estilo");
+		lblNewLabel_3.setBounds(55, 132, 70, 15);
+		panel_1.add(lblNewLabel_3);
+		
+		txtCodigo = new JTextField();
+		txtCodigo.setBounds(157, 8, 114, 19);
+		panel_1.add(txtCodigo);
+		txtCodigo.setColumns(10);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(157, 48, 215, 19);
+		panel_1.add(txtNome);
+		txtNome.setColumns(10);
+		
+		txtAutor = new JTextField();
+		txtAutor.setBounds(157, 88, 215, 19);
+		panel_1.add(txtAutor);
+		txtAutor.setColumns(10);
+		
+		txtEstilo = new JTextField();
+		txtEstilo.setBounds(157, 128, 114, 19);
+		panel_1.add(txtEstilo);
+		txtEstilo.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Ano");
+		lblNewLabel.setBounds(55, 172, 70, 15);
+		panel_1.add(lblNewLabel);
+		
+		txtAno = new JTextField();
+		txtAno.setBounds(157, 168, 114, 19);
+		panel_1.add(txtAno);
+		txtAno.setColumns(10);
+		
+		JPanel panel_2 = new JPanel();
+		contentPane.add(panel_2, BorderLayout.SOUTH);
+		
+		JButton btnNewButton = new JButton("Salvar");
+		panel_2.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Cancelar");
+		panel_2.add(btnNewButton_1);
+	}
+	
+	private void preencheCampos(Musica m){
+		
+		if (m == null){
+			txtCodigo.setText("");
+			txtNome.setText("");
+			txtAutor.setText("");
+			txtEstilo.setText("");
+			txtAno.setText("");
+		} else {
+			txtCodigo.setText(Integer.toString(m.getCodigo()));
+			txtNome.setText(m.getNome());
+			txtAutor.setText(m.getAutor());
+			txtEstilo.setText(m.getEstilo());
+			txtAno.setText(Integer.toString(m.getAno()));
+		}
+	}
+}

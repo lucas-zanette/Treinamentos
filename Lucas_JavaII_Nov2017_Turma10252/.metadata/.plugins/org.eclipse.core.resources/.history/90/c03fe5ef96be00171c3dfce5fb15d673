@@ -1,0 +1,191 @@
+package br.com.elaborata.tela;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import br.com.elaborata.controle.CtlProduto;
+import br.com.elaborata.modelo.Produto;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Panel;
+
+public class FrmProduto extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txt_Codigo;
+	private JTextField txt_Descricao;
+	private JTextField txt_Quantidade;
+	private JButton btnIncluir;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	private JButton btnAnterior;
+	private JButton btnProximo;
+	private JButton btnSalvar;
+	private JButton btnCancelar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmProduto frame = new FrmProduto();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FrmProduto() {
+		
+		private CtlProduto ctl = new CtlProduto();
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		ativaCampos(false);		
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Código");
+		lblNewLabel.setBounds(30, 64, 70, 15);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Produto");
+		lblNewLabel_1.setBounds(30, 112, 70, 15);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Quantidade");
+		lblNewLabel_2.setBounds(30, 159, 123, 15);
+		panel_1.add(lblNewLabel_2);
+		
+		txt_Codigo = new JTextField();
+		txt_Codigo.setBounds(153, 62, 114, 19);
+		panel_1.add(txt_Codigo);
+		txt_Codigo.setColumns(10);
+		
+		txt_Descricao = new JTextField();
+		txt_Descricao.setBounds(153, 110, 114, 19);
+		panel_1.add(txt_Descricao);
+		txt_Descricao.setColumns(10);
+		
+		txt_Quantidade = new JTextField();
+		txt_Quantidade.setBounds(153, 157, 114, 19);
+		panel_1.add(txt_Quantidade);
+		txt_Quantidade.setColumns(10);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 12, 438, 35);
+		panel_1.add(panel);
+		
+		btnIncluir = new JButton("Incluir");
+		btnIncluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ativaCampos(true);				
+			}
+		});
+		panel.add(btnIncluir);
+		
+		btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ativaCampos(true);
+			}
+		});
+		panel.add(btnAlterar);
+		
+		btnExcluir = new JButton("Excluir");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ativaCampos(false);
+			}
+		});
+		panel.add(btnExcluir);
+		
+		btnAnterior = new JButton("<");
+		panel.add(btnAnterior);
+		
+		btnProximo = new JButton(">");
+		panel.add(btnProximo);
+		
+		btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ativaCampos(false);
+				
+				Produto p = new Produto(Integer.parseInt(txt_Codigo.getText()), 
+										txt_Descricao.getText(),
+										Integer.parseInt(txt_Quantidade.getText()));
+				ctl.salvar(p);
+			}
+		});
+		
+		btnSalvar.setBounds(30, 205, 117, 25);
+		panel_1.add(btnSalvar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ativaCampos(false);
+			}
+		});
+		
+		btnCancelar.setBounds(150, 205, 117, 25);
+		panel_1.add(btnCancelar);
+
+	}
+	
+	private void ativaCampos(boolean estadoAtivacao) {
+		txt_Codigo.setEnabled(estadoAtivacao);
+		txt_Descricao.setEnabled(estadoAtivacao);
+		txt_Quantidade.setEnabled(estadoAtivacao);
+		
+		btnIncluir.setEnabled(!estadoAtivacao);
+		btnAlterar.setEnabled(!estadoAtivacao);
+		btnExcluir.setEnabled(!estadoAtivacao);
+		
+		btnAnterior.setEnabled(!estadoAtivacao);
+		btnProximo.setEnabled(!estadoAtivacao);		
+	}
+	public JButton getBtnIncluir() {
+		return btnIncluir;
+	}
+	public JButton getBtnAlterar() {
+		return btnAlterar;
+	}
+	public JButton getBtnExcluir() {
+		return btnExcluir;
+	}
+	public JButton getBtnAnterior() {
+		return btnAnterior;
+	}
+	public JButton getBtnProximo() {
+		return btnProximo;
+	}
+	public JButton getBtnSalvar() {
+		return btnSalvar;
+	}
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+}

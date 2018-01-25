@@ -1,0 +1,29 @@
+package login;
+
+import javax.annotation.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+public class LoginMB {
+
+	private String fldLogin;
+	private String fldSenha;
+	public String getFldLogin() {
+		return fldLogin;
+	}
+	public void setFldLogin(String fldLogin) {
+		this.fldLogin = fldLogin;
+	}
+	public String getFldSenha() {
+		return fldSenha;
+	}
+	public void setFldSenha(String fldSenha) {
+		this.fldSenha = fldSenha;
+	}
+	
+	public String login(){
+		return null;
+	}
+	
+}

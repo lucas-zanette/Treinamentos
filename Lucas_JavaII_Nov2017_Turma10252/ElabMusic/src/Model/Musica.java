@@ -1,0 +1,81 @@
+package Model;
+
+public class Musica {
+
+	private int codigo;
+	private String nome;
+	private String autor;
+	private String estilo;
+	private int ano;
+	
+	public Musica(int codigo, String nome, String autor, String estilo, int ano) throws Exception {
+		super();
+		setCodigo(codigo);
+		setNome(nome);
+		setAutor(autor);
+		setEstilo(estilo);		
+		setAno(ano);
+	}
+	
+	public int getCodigo() {
+		return codigo;
+	}
+	
+	public void setCodigo(int codigo) throws Exception {
+		if ( codigo < 0 ) {			
+			throw new Exception("Código inválido");
+		} else {
+			this.codigo = codigo;
+		}
+	}
+	
+	public String getNome() {		
+		return nome;
+	}
+	
+	public void setNome(String nome) throws Exception {
+		if ( nome == null || nome.equals("")){
+			throw new Exception("Campo nome não está preenchido!");
+		} else{
+			this.nome = nome;	
+		}		
+	}
+	
+	public String getAutor() {
+		return autor;
+	}
+	
+	public void setAutor(String autor) throws Exception {
+		if ( autor == null || autor.equals("")){
+			throw new Exception("Campo autor não está preenchido!");
+		} else {
+			this.autor = autor;	
+		}		
+	}
+	
+	public String getEstilo() {
+		return estilo;
+	}
+	
+	public void setEstilo(String estilo) throws Exception {
+		if ( estilo == null || estilo.equals("")) {
+			throw new Exception("Campo estilo não está preenchido!");
+		} else {
+			this.estilo = estilo;	
+		}
+	}
+
+	public int getAno() {
+		return ano;
+	}
+
+	public void setAno(int ano) throws Exception {
+		if (ano == 0) {
+			throw new Exception("Ano tem que ser maior que 0!");
+		} else if ( ano < 0 ) {
+			throw new Exception("Ano tem que ser menor que 0!");
+		} else {
+			this.ano = ano;
+		}
+	}
+}

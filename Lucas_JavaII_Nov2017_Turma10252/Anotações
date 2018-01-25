@@ -1,0 +1,61 @@
+Eclipse
+	para desbancar o netbeans da sun, eclipse é o nome por passar a frente do sol
+Oracle
+  	Oráculo ficava numa cidade chamada delphi
+	quer falar com oraculo venha para delphos
+
+---------
+Aula3
+---------
+
+Ao criar um JFrame
+	Incluir um borderLayout no fundo - contentpane
+	com 2 formlayout para os botoes em cima e os campos em baixo
+
+
+MVC
+	o set que eu programaei nos pojos fazem o mesmo que o Rules do Genexus
+	na classe do controle por exemplo o salvar vem enxuto apos passar pelo sets
+
+----------
+Aula4
+----------
+http://desciclopedia.org/wiki/Programa%C3%A7%C3%A3o_Orientada_a_Gambiarras
+http://sou.gohorseprocess.com.br/extreme-go-horse-xgh/
+http://desciclopedia.org/wiki/Java
+
+final exemplo: (private final int lista = 3) final faz ser uma constante e não varia
+
+======================
+BD
+
+mysql -uroot -pelaborata
+create database  	= criar um database
+use aula 			= usar um bd
+
+=====================
+QUERIES
+=====================
+
+create table cliente;
+drop table cliente
+use aula
+create table cliente (codigo int auto_increment, nome varchar(250), endereco varchar(200), salario double(16,2), primary key(codigo));
+insert into cliente (codigo, nome, endereco, salario) values(1, "João", "Rua 1", 2000)
+insert into cliente (codigo, nome, endereco, salario) values(2, "Pedro", "Rua 2", 3000)
+insert into cliente (codigo, nome, endereco, salario) values(3, "Maria", "Rua 3", 4000)
+delete from cliente where codigo = 2
+select * from cliente
+update cliente set salario = 6000 where codigo = 3
+
+list database;
+create database elabmusic;
+use elabmusic;
+
+create table musica (codigo int auto_increment, nome varchar(100), autor varchar(100), estilo varchar(100), ano int, primary key(codigo));
+commit
+insert into musica (codigo, nome, autor, estilo, ano) values(1, "Noites Traiçoeiras", "Padre Zézinho", "gospel", "1980");
+insert into musica (codigo, nome, autor, estilo, ano) values(2, "Lento (Remix) (feat. CNCO)", "Little Mix", "Reggaeton", "2014");
+insert into musica (codigo, nome, autor, estilo, ano) values(3, "ACIMA DO SOL", "Skank", "Rock", "2001");
+
+select * from musica;

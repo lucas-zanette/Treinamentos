@@ -1,0 +1,41 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="banco.BdFactory"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	Connection con = BdFactory.getInstance().getConnection();
+	    		
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement("insert into pesquisa_sorvete (sabor, marca) values (?, ?)");
+			ps.setString(1, request.getParameter("sabor"));
+			ps.setString(2, request.getParameter("marca"));
+			
+			ps.execute();
+			
+			ps.close();
+			con.close();		
+		} catch  (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	%>
+
+	<FORM TYPE=POST ACTION=index.jsp>
+	<INPUT TYPE=submit name=submit value="Retorna">	
+	</FORM>
+
+
+</body>
+</html>

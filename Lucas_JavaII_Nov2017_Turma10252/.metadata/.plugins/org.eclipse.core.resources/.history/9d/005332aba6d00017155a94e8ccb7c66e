@@ -1,0 +1,20 @@
+package elaborata.com.br;
+
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//jdbc usa esta string e tem que colocar anexar no projeto o jdbc - 
+		//botao direito no projeto -> properties -> java build path
+		Class.forName("com.mysql.jdbc.Driver").newInstance();		
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/teste?user=root&password=elaborata&useSSL=false");
+		
+		//
+		PreparedStatement ps = con.prepareStatement("select");
+	}
+
+}

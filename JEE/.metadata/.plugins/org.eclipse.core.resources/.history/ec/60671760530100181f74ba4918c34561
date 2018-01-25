@@ -1,0 +1,12 @@
+package login;
+
+import java.sql.Connection;
+
+public class Biblioteca {
+
+	public static Connection getConnectio() {
+		
+	}
+	
+	
+}

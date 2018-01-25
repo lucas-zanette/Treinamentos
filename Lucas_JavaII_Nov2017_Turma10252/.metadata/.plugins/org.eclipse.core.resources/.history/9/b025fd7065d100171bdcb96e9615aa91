@@ -1,0 +1,14 @@
+package View;
+
+import javax.swing.JPanel;
+
+public class Musica extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Musica() {
+
+	}
+
+}

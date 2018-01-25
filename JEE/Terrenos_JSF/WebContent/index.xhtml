@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Terreno</title>
+</h:head>
+<h:body>
+	<h:form>
+		<br />
+		<br />
+		<h3>Informe as medidas: </h3>
+		Largura: <h:inputText value="#{terrenosBean.largura}" binding="#{terrenosBean.inputLargura}"/>
+		Comprimento: <h:inputText value="#{terrenosBean.comprimento}" binding="#{terrenosBean.inputComprimento}"/>
+		<br />
+		<br />
+		
+		<h:commandButton value="Adicionar" action="#{terrenosBean.adicionar}" binding="#{terrenosBean.botaoAdicionar}"/>
+		
+		<br />
+		<br />
+		
+		<ol>
+			<ui:repeat var="area" value="#{terrenosBean.terrenos}">
+				<li>#{area}</li>				
+			</ui:repeat>
+		</ol>
+		
+		<h1>O maior terreno é o de: #{terrenosBean.maior} m2</h1>		
+		
+	</h:form>
+</h:body>
+</html>

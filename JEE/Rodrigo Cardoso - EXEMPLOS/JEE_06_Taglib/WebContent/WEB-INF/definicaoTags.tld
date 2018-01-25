@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Exemplo de TagLib</short-name>
+	<tag>
+		<name>MinhaTag</name>
+		<tag-class>taglibs.MinhaTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>MinhaTagParam</name>
+		<tag-class>taglibs.MinhaTagParam</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>mensagem</name>
+		</attribute>
+	</tag>
+</taglib>

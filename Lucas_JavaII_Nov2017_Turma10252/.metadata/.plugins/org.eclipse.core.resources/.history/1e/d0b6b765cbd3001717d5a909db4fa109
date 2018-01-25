@@ -1,0 +1,48 @@
+package Control;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import Model.Musica;
+
+public class CtlMusica {
+
+	
+	public void incluir(Musica m) throws SQLException {
+		String sql = "";
+		PreparedStatement ps = Db.GetInstance().getConnection().prepareStatement(sql);
+	}
+
+	public void alterar(Musica m) {
+		
+	}
+	
+	public void excluir(int codigo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Musica getAnt(){
+		return null;
+	}
+	
+	public Musica getProx(){
+		return null;
+	}
+	
+	public Musica getAtual(){
+		return null;
+	}
+	
+	public boolean temAnt(){
+		return null;
+	}
+	
+	public boolean temProx(){
+		return null;
+	}
+	
+	public boolean temAtual(){
+		return false;
+	}
+}

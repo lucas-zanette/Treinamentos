@@ -1,0 +1,60 @@
+package login;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.annotation.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import control.BD_Gerenciado;
+
+@ManagedBean
+@SessionScoped
+public class LoginMB {
+
+	private String fldLogin;
+	private String fldSenha;
+	
+	public String getFldLogin() {
+		return fldLogin;
+	}
+	public void setFldLogin(String fldLogin) {
+		this.fldLogin = fldLogin;
+	}
+	public String getFldSenha() {
+		return fldSenha;
+	}
+	public void setFldSenha(String fldSenha) {
+		this.fldSenha = fldSenha;
+	}
+	
+	public String login() {
+		String login;
+		Connection con = BD_Gerenciado.getConnection();
+		PreparedStatement ps;
+				
+		ps = con.prepareStatement("select login from usuario where login = ?", Integer.parseInt(fldLogin));
+	   	ResultSet rs = ps.executeQuery();
+	   	if (rs.next()) {  
+	       	login = rs.getString("login");
+	       	
+	   	}
+		/*
+		if (fldLogin.trim().equals("admin") && fldSenha.trim().equals("admin")) {
+			LoginDadosModel ldm = new LoginDadosModel(fldLogin.trim());
+			HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.setAttribute("loginDados", ldm);
+			fldLogin = null;
+			fldSenha = null;
+			return "pages/TelaPrincipal";
+		} else {
+			return "LoginInvalido";
+			*/
+		}
+		
+	}
+	
+}

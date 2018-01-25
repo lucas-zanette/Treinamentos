@@ -1,0 +1,34 @@
+package Control;
+
+public class Db {
+	
+	//construtor padrao
+	//public Db(){
+	
+	//não quero que seja instanciada duas vezes
+	//private Db() { 
+	
+	/*
+	private Db(){
+		
+	}
+	public static Db criar(){
+		
+	}
+	*/
+		
+	private static Db db;
+	
+	private Db() {
+		//construtor privado do design pattern Singleton.
+	}
+	
+	public static Db GetInstance() {
+		if (db == null)
+			db = new Db();
+		
+		return db;
+	}
+	
+	
+}

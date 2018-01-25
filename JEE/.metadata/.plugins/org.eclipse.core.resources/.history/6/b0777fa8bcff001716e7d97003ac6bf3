@@ -1,0 +1,39 @@
+p	ackage taglibs;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
+
+import control.BD_Gerenciado;
+
+public class MinhaTag extends SimpleTagSupport {
+	
+	public void doTag() throws IOException {
+		JspWriter out = getJspContext().getOut();
+		
+		
+		
+		Connection con = BD_Gerenciado.getConnection();
+		
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement("select count(*) Pessoas");
+			ResultSet rs = ps.executeQuery();
+			int count = 0;
+			if (rs.next()) {
+				count += 1;
+			}
+			
+			out.println("<H1>Pessoas responderam a pesquisa</H1>");
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+}
+}

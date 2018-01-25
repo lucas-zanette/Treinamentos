@@ -1,0 +1,21 @@
+package Control;
+
+import Model.Musica;
+
+public class CtlMusica {
+
+	public CtlMusica() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void excluir(int parseInt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Musica getAtual(){
+		return null;
+	}
+	
+	
+}

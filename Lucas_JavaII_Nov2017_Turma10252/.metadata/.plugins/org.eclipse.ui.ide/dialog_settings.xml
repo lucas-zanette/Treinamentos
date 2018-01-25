@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/Dados"/>
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/BD"/>
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/Chat_UDP"/>
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/workspace_java2_10252/AulaRedeUDP"/>
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252"/>
+		<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/Listas/src"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/aluno/workspace/Lucas_JavaII_Nov2017_Turma10252/Chat_UDP"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

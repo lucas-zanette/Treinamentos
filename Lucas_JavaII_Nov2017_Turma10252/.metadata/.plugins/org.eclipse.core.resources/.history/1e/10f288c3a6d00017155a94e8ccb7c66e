@@ -1,0 +1,27 @@
+package elaborata.com.br;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//jdbc usa esta string e tem que colocar anexar no projeto o jdbc - 
+		//botao direito no projeto -> properties -> java build path
+		Class.forName("com.mysql.jdbc.Driver").newInstance();		
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aula?user=root&password=elaborata&useSSL=false");
+		
+		//colocar o comando numa classe
+		PreparedStatement ps = con.prepareStatement("select * from cliente");
+		
+		ResultSet rs = ps.executeQuery();
+		// (executeQuery e EXECUTE) são completamente diferentes
+		//comandos que não tem retorno (insert, update, delete) usa-se o EXECUTE
+		//comandos que tem retorno (select) usa-se o executeQuery
+		
+	}
+
+}
