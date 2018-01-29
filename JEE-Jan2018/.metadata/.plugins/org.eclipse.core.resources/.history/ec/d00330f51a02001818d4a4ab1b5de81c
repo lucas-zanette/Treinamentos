@@ -1,0 +1,51 @@
+package login;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+import control.BD_Gerenciado;
+
+@ManagedBean
+@SessionScoped
+public class UsuarioMB {
+
+	private String login;
+	private String senha;
+
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	public String inserir(){
+
+		Connection con = BD_Gerenciado.getConnection();
+
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement("insert into usuario(login, senha) values(?, md5(?))");
+			ps.setString(1, login);
+			ps.setString(2, senha);					
+
+			ps.execute();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}	
+	
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+
+	<h:form name="Usuário">
+		<h:outputText value="Login" />
+		<h:inputText id="login" name="login" size="30" maxlength="10"
+			value="#{usuarioMB.login}" />
+		<br />
+
+		<h:outputText value="Senha" />
+		<h:inputSecret id="senha" name="senha" size="30" maxlength="10"
+			value="#{usuarioMB.senha}" />
+		<br />
+		<br />
+
+		<h:commandButton action="#{usuarioMB.inserir}" value="Entrar" />
+	</h:form>
+
+
+	<h:dataTable id="items" value="#{SeuBean.carros}" var="item">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Marca" />
+			</f:facet>
+			<h:outputText value="#{item.marca}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Nome" />
+			</f:facet>
+			<h:outputText value="#{item.nome}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Ano" />
+			</f:facet>
+			<h:outputText value="#{item.ano}" />
+		</h:column>
+	</h:dataTable>
+
+
+</h:body>
+</html>

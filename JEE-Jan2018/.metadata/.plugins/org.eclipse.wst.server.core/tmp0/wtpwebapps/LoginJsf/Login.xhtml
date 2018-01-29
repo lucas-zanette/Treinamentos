@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Acesso ao sistema</title>
+</h:head>
+<h:body>
+
+<h1>Bem-vindo ao sistema</h1>
+<hr/>
+<h2>Acesso ao sistema</h2>
+
+<h:form name="frmLogin">
+	<h:outputText value="Digite o login" />
+	<h:inputText id="fldLogin" name="fldLogin" size="30" maxlength="10" value="#{loginMB.fldLogin}" />
+	<br/>
+	
+	<h:outputText value="Digite a senha" />
+	<h:inputSecret id="fldSenha" name="fldSenha" size="30" maxlength="10" value="#{loginMB.fldSenha}" />
+	<br/>
+	<br/>
+	
+	<h:commandButton action="#{loginMB.login}" value="Entrar" />
+	
+</h:form>
+
+</h:body>
+</html>
